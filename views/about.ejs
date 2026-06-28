@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>resume</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <!-- Top Navigation -->
+    <header class="topbar">
+
+        <div class="logo">
+            Nida@dev:~$
+        </div>
+
+        <nav class="nav">
+            <a href="#" onclick="showSection('topwork-section'); return false;">Top projects</a>
+            <a href="#" onclick="showSection('contact-section'); return false;">contact</a>
+        </nav>
+
+    </header>
+
+    <!-- Main Layout -->
+    <div class="container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <h3>// sections</h3>
+
+            <ul>
+                <li>recent working</li>
+                <li>
+                    <div id="recent-projects">
+
+                        <% recentProjects.forEach(project=> { %>
+
+                            <div class="sidebar-project">
+                                <p>
+                                    <%= project.name %>
+                                </p>
+                                <a href="<%= project.html_url %>" target="_blank">
+                                    View on GitHub
+                                </a>
+
+                            </div>
+
+                            <% }) %>
+
+                        </div>
+                </li>
+            </ul>
+
+            <hr>
+
+            <h3>// technologies</h3>
+
+            <ul>
+                <% skills.forEach(skill=> { %>
+                    <li>
+                        <%= skill %>
+                    </li>
+                    <% }) %>
+            </ul>
+
+        </aside>
+
+        <!-- Main -->
+        <main class="content">
+
+            <section class="terminal">
+
+                <div class="terminal-header">
+
+                    <span class="red"></span>
+                    <span class="yellow"></span>
+                    <span class="green"></span>
+
+                    <p>~/about</p>
+
+                </div>
+
+                <div class="terminal-body">
+
+                    <p>$ whoami</p>
+
+                    <h1>
+                        <%= profile.name %>
+                    </h1>
+
+                    <p>
+                        <%= profile.bio %>
+                    </p>
+
+                </div>
+
+            </section>
+   <section id="contact-section" class="info-section contact">
+    <h2>Contact</h2>
+    <p><strong>Email:</strong>
+                    <a href="mailto:<%= contact.email %>">
+                        <%= contact.email %>
+                    </a></p>
+    <p>
+        <strong>GitHub</strong>
+        <a href="<%= contact.github %>"><%= contact.github %></a>
+    </p>
+    <p>
+        <strong>LinkedIn</strong>
+        <a href="<%= contact.linkedin %>"><%= contact.linkedin %></a>
+    </p>
+</section>
+
+<section id="topwork-section" class="info-section">
+
+    <h2>Top Projects</h2>
+
+    <% projects.forEach(project => { %>
+
+        <div class="project">
+
+            <div class="project-info">
+
+                <h3><%= project.name %></h3>
+
+                <p>
+                    <%= project.description || "No description available." %>
+                </p>
+
+                <a href="<%= project.html_url %>" target="_blank">
+                    View on GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    <% }) %>
+
+</section>
+        </main>
+
+    </div>
+<script src="/script.js"></script>
+</body>
+
+</html>
