@@ -2,7 +2,7 @@ require("dotenv").config();
 const githubService = require("./services/githubService");
 
 const express = require("express");
-const PORT =3000;
+const PORT = process.env.PORT || 3000;
 const app = express();
 //-----------
 const GITHUB_USERNAME = "Nidairshad";
