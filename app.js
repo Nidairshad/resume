@@ -19,6 +19,7 @@ app.set("view engine","ejs");
     };
 
     const skills = [
+     "Java",
     "C",
     "JavaScript",
     "Node.js",
